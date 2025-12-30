@@ -7,8 +7,10 @@ on:
 jobs:
 
   build:
-    name: Build image and upload
+
     runs-on: ubuntu-latest
+
     steps:
-      - name: Build
-        run: docker build -t erhardikfreelancer/flaskapp:${GITHUB_RUN_NUMBER} .
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag erhardikfreelancer/flaskapp:${GITHUB_RUN_NUMBER}
