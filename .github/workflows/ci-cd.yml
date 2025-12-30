@@ -28,7 +28,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@9ec57ed1fcdbf14dcef7dfbe97b2010124a938b7
         with:
-          images: erhardikfreelancer/flask-Todo-App:${GITHUB_RUN_NUMBER}
+          images: erhardikfreelancer/flask-Todo-App
 
       - name: Build and push Docker image
         id: push
@@ -43,6 +43,6 @@ jobs:
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v3
         with:
-          subject-name: index.docker.io/erhardikfreelancer/flask-Todo-App:${GITHUB_RUN_NUMBER}
+          subject-name: index.docker.io/erhardikfreelancer/flask-Todo-App
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
