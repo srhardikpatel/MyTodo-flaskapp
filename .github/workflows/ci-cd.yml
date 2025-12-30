@@ -4,7 +4,8 @@ on:
   push:
 
 env:
-  LATEST_TAG: erhardikfreelancer/flask-todo-app:${{ github.run_number }}
+  IMAGE_NAME: erhardikfreelancer/flask-todo-app
+  LATEST_TAG: ${{ IMAGE_NAME }}:${{ github.run_number }}
   
 jobs:
   push_to_registry:
@@ -38,7 +39,7 @@ jobs:
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v3
         with:
-          subject-name: index.docker.io/${{ env.LATEST_TAG }}
+          subject-name: index.docker.io/${{ env.IMAGE_NAME }}
           subject-digest: ${{ steps.push.outputs.digest }}
           push-to-registry: true
 
