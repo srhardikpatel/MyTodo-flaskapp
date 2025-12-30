@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-mysql-deployment
+  labels:
+    app: flask-mysql
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-mysql
+  template:
+    metadata:
+      labels:
+        app: flask-mysql
+    spec:
+      containers:
+      - name: flask-mysql
+        image: erhardikfreelancer/flask-mysql
+        env:
+            - name: MYSQL_HOST
+              value: mysql
+            - name: MYSQL_USER
+              value: root
+            - name: MYSQL_PASSWORD
+              value: mysecretpassword
+            - name: MYSQL_DB
+              value: mysql
+        ports:
+        - containerPort: 5000
+
