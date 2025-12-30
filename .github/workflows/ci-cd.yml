@@ -11,5 +11,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Build
-        uses: actions/checkout@v4
         run: docker build -t erhardikfreelancer/flaskapp:${BUILD_NUMBER}.
