@@ -18,5 +18,5 @@ jobs:
 
     steps:
       - name: Set Greeting
-        run: echo LATEST_TAG
+        run: echo $LATEST_TAG
         shell: bash
