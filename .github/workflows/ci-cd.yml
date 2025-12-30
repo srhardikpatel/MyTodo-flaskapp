@@ -4,7 +4,7 @@ on:
   push:
 
 env:
-  LATEST_TAG: erhardikfreelancer/flask-Todo-App:${GITHUB_RUN_NUMBER}
+  LATEST_TAG: erhardikfreelancer/flask-Todo-App:${{ github.run_number }}
   
 jobs:
   push_to_registry:
