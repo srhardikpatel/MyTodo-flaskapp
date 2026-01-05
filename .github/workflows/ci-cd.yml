@@ -26,14 +26,9 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push Docker image
-        id: build
-        uses: docker/build-push-action@3b5e8027fcad23fda98b2e3ac259d8d67585f671
-        with:
-          context: .
-          file: ./Dockerfile
-          tags: ${{ env.IMAGE_NAME }}:${{ github.run_number }}
-          
+      - name: Build a Docker image
+        run: docker build -t ${{ env.IMAGE_NAME }}:${{ github.run_number }} .
+                  
       - name: Run Trivy vulnerability scanner
         uses: aquasecurity/trivy-action@master
         with:
@@ -43,14 +38,20 @@ jobs:
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
-          
-      - name: Run Snyk to check Docker images for vulnerabilities
+
+      - name: Run Snyk to check Docker image for vulnerabilities
+        continue-on-error: true
         uses: snyk/actions/docker@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           image: ${{ env.IMAGE_NAME }}:${{ github.run_number }}
-          args: --severity-threshold=high
+          args: --file=Dockerfile --severity-threshold=high
+          
+      - name: Upload result to GitHub Code Scanning
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: snyk.sarif
         
       - name: Build and push Docker image
         id: push
