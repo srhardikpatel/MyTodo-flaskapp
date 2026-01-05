@@ -13,4 +13,4 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Update deployment file
-        run: git grep "erhardikfreelancer/flask-todo-app" -- deployment/flask-deployment.yml
+        run: grep "erhardikfreelancer/flask-todo-app" -- deployment/flask-deployment.yml
