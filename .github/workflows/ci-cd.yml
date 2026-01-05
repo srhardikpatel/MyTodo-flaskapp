@@ -16,5 +16,4 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Update deployment file
-        shell: bash
         run: grep "${{ env.IMAGE_NAME }}" deployment/flask-deployment.yml
