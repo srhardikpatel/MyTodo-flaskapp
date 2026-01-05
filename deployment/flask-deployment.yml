@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flask-mysql
-        image: erhardikfreelancer/flask-todo-app
+        image: erhardikfreelancer/flask-todo-app:latest
         env:
             - name: MYSQL_HOST
               value: mysql
