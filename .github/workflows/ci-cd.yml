@@ -23,4 +23,5 @@ jobs:
              sed -i "s/${IMAGE_TAG}/${{ github.run_number }}/g" deployment/flask-deployment.yml
              git config user.email "srhardikpatel@gmail.com"
              git config user.name "srhardikpatel"
+             git add deployment/flask-deployment.yml
              git commit -m "Update deployment image to version ${{ github.run_number }}"
