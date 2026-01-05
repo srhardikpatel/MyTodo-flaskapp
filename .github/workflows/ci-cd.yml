@@ -2,7 +2,10 @@ name: CI-CD Pipeline
 
 on:
   push:
-  
+
+env:
+  IMAGE_NAME: erhardikfreelancer/flask-todo-app
+
 jobs:
 
   checkout_build:
@@ -13,4 +16,4 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Update deployment file
-        run: grep "erhardikfreelancer/flask-todo-app" -- deployment/flask-deployment.yml
+        run: grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml
