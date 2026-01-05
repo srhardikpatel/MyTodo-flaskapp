@@ -17,4 +17,4 @@ jobs:
 
       - name: Update deployment file
         shell: bash
-        run: grep "${{ env.IMAGE_NAME }}" deployment/flask-deployment.yml
+        run: echo "grep "${{ env.IMAGE_NAME }}" deployment/flask-deployment.yml"
