@@ -16,4 +16,4 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Update deployment file
-        run: grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}'
+        run: grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}' | cut -d ":" -f 2
