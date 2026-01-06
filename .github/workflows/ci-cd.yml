@@ -17,6 +17,9 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Update deployment file
+        env:
+          STEP_VAR: 'StepSpecificValue'
         run: |
-          echo "IMAGE_TAG=$(grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}' | cut -d ":" -f 2)"
-          echo "value $(IMAGE_TAG)"
+           echo "New Value" > $STEP_VAR
+           echo $STEP_VAR
+        
