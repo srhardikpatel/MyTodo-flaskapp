@@ -11,6 +11,8 @@ jobs:
   checkout_build:
     name: Checkout code and build an image
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - name: Check out the repo
         uses: actions/checkout@v5
