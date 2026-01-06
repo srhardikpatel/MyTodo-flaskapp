@@ -32,4 +32,3 @@ jobs:
           
           # 4. Use the multiline variable in the next line (must use double quotes to preserve newlines)
           echo "$MULTILINE_VAR"
-        shell: bash
