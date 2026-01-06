@@ -19,4 +19,4 @@ jobs:
       - name: Update deployment file
         run: |
           echo "IMAGE_TAG=$(grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}' | cut -d ":" -f 2)"
-          echo $IMAGE_TAG
+          echo $(IMAGE_TAG)
