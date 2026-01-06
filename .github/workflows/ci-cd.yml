@@ -16,7 +16,7 @@ jobs:
       - name: Use dynamic variable in multiline bash
         run: |
           # 1. Define a variable (available to all lines in this step)
-          DYNAMIC_VALUE="Hello, GitHub Actions!"
+          DYNAMIC_VALUE="grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}' | cut -d ":" -f 2"
           
           # 2. Use the variable in the next lines within the same run block
           echo "The value on line 2 is: $DYNAMIC_VALUE"
