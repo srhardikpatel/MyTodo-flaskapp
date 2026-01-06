@@ -15,20 +15,10 @@ jobs:
     steps:
       - name: Use dynamic variable in multiline bash
         run: |
+          grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}' | cut -d ":" -f 2
           # 1. Define a variable (available to all lines in this step)
-          DYNAMIC_VALUE="$(grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}' | cut -d ":" -f 2)"
+          DYNAMIC_VALUE="$(grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml)"
           
           # 2. Use the variable in the next lines within the same run block
           echo "The value on line 2 is: $DYNAMIC_VALUE"
           echo "The value on line 3 is: ${DYNAMIC_VALUE}"
-          
-          # 3. Define a multiline variable using EOF
-          MULTILINE_VAR=$(cat <<'EOF'
-          This is the first line
-          and this is the second line
-          with a dynamic value: $DYNAMIC_VALUE
-          EOF
-          ) 
-          
-          # 4. Use the multiline variable in the next line (must use double quotes to preserve newlines)
-          echo "$MULTILINE_VAR"
