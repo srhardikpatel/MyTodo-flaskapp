@@ -19,4 +19,4 @@ jobs:
       - name: Update deployment file
         env:
           IMAGE_TAG: 'latest'
-        run: echo "$(grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}' | cut -d ":" -f 2)" >> "${IMAGE_TAG}"
+        run: echo "$(grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}' | cut -d ":" -f 2)" > "${IMAGE_TAG}"
