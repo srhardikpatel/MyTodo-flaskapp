@@ -10,9 +10,12 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+      - name: Check out the repo
+        uses: actions/checkout@v5
+      
       - name: Use dynamic variable in multiline bash
         run: |
-          grep "MYSQL_HOST" -- app.py
+          grep "erhardikfreelancer/flask-todo-app" -- deployment/flask-deployment.yml
           # 1. Define a variable (available to all lines in this step)
           #DYNAMIC_VALUE="$(grep "erhardikfreelancer/flask-todo-app" -- deployment/flask-deployment.yml)"
           
