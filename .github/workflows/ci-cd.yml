@@ -17,9 +17,7 @@ jobs:
         uses: actions/checkout@v5
 
       - name: Update deployment file
-        env:
-          STEP_VAR: 'StepSpecificValue'
         run: |
-           echo "New Value" >> "$(STEP_VAR)"
-           echo $STEP_VAR
+           echo "DYNAMIC_VAR=dynamic value" >> $GITHUB_ENV
+           echo $DYNAMIC_VAR
         
