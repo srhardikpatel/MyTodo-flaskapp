@@ -74,5 +74,5 @@ jobs:
           git config user.email "srhardikpatel@gmail.com"
           git config user.name "srhardikpatel"
           git add deployment/flask-deployment.yml
-          git commit -am "Update deployment image to version ${{ github.run_number }} [skip ci]"
+          git commit -m "Update deployment image to version ${{ github.run_number }} [skip ci]"
           git push
