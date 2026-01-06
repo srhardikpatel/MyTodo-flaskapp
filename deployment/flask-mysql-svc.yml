@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: flask-mysql
+  name: flask-todo-app
 spec:
   selector:
-    app: flask-mysql
+    app: flask-todo-app
   ports:
     - protocol: TCP
       port: 80
