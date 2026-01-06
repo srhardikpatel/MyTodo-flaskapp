@@ -20,6 +20,6 @@ jobs:
         env:
           STEP_VAR: 'StepSpecificValue'
         run: |
-           echo "New Value" >> ${STEP_VAR}
+           echo "New Value" >> "$(STEP_VAR)"
            echo $STEP_VAR
         
