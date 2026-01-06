@@ -1,4 +1,4 @@
-FROM python:3.10-slim
+FROM python:3.15-rc-alpine3.22
 
 RUN apt update && apt install -y gcc default-libmysqlclient-dev build-essential pkg-config && rm -rf /var/lib/apt/lists/*
 
