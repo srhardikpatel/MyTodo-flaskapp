@@ -19,5 +19,5 @@ jobs:
       - name: Update deployment file
         run: |
            echo "DYNAMIC_VAR=dynamic value" >> $GITHUB_ENV
-           echo "The value is $DYNAMIC_VAR"
+           echo "The value is ${DYNAMIC_VAR}"
         
