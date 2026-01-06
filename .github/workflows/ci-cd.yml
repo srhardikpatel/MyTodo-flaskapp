@@ -63,7 +63,10 @@ jobs:
     needs: push_to_registry
     permissions:
       contents: write
-    steps:      
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v5
+    
       - name: Update image tag
         run: |
           IMAGE_TAG="$(grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}' | cut -d ":" -f 2)"
