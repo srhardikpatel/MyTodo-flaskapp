@@ -21,4 +21,5 @@ jobs:
         env:
           IMAGE_TAG: 'latest'
         run: |
-             echo "$(grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}' | cut -d ":" -f 2)"
+             echo "$(grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}' | cut -d ":" -f 2)" >> $IMAGE_TAG
+             echo $IMAGE_TAG
