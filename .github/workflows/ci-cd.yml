@@ -3,9 +3,6 @@ name: CI-CD Pipeline
 on:
   push:
 
-env:
-  IMAGE_NAME: erhardikfreelancer/flask-todo-app
-
 jobs:
 
   checkout_build:
@@ -15,9 +12,9 @@ jobs:
     steps:
       - name: Use dynamic variable in multiline bash
         run: |
-          grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml | awk '{print $2}' | cut -d ":" -f 2
+          grep "erhardikfreelancer/flask-todo-app" -- deployment/flask-deployment.yml
           # 1. Define a variable (available to all lines in this step)
-          DYNAMIC_VALUE="$(grep "${{ env.IMAGE_NAME }}" -- deployment/flask-deployment.yml)"
+          DYNAMIC_VALUE="$(grep "erhardikfreelancer/flask-todo-app" -- deployment/flask-deployment.yml)"
           
           # 2. Use the variable in the next lines within the same run block
           echo "The value on line 2 is: $DYNAMIC_VALUE"
