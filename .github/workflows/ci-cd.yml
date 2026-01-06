@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Use dynamic variable in multiline bash
         run: |
-          grep "MYSQL_HOST" app.py
+          grep "MYSQL_HOST" -- app.py
           # 1. Define a variable (available to all lines in this step)
           #DYNAMIC_VALUE="$(grep "erhardikfreelancer/flask-todo-app" -- deployment/flask-deployment.yml)"
           
