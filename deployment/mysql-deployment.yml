@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql-deployment
-  namespace: flask-todo-app-namespace
+  namespace: default
 spec:
   replicas: 1
   selector:
