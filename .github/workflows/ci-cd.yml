@@ -2,6 +2,8 @@ name: CI-CD Pipeline
 
 on:
   push:
+    paths-ignore:
+      - 'deployment/**'
 
 env:
   IMAGE_NAME: erhardikfreelancer/flask-todo-app
