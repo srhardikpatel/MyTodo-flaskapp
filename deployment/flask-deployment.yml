@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: flask-todo-app-deployment
-  namespace: operators
+  namespace: flask-todo-app-namespace
   labels:
     app: flask-todo-app
 spec:
