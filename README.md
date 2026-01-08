@@ -15,3 +15,6 @@ A CI/CD pipeline is configured using GitHub Actions to automatically build a Doc
 
 ## 3. Final result
 
+![Untitled Diagram](https://github.com/srhardikpatel/MyTodo-flaskapp/blob/main/readme_images/Add_task.png)
+
+![Untitled Diagram](https://github.com/srhardikpatel/MyTodo-flaskapp/blob/main/readme_images/Update_task.png)
