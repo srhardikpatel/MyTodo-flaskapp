@@ -13,3 +13,5 @@ A CI/CD pipeline is configured using GitHub Actions to automatically build a Doc
 
 ![Untitled Diagram](https://github.com/srhardikpatel/MyTodo-flaskapp/blob/main/Diagram.drawio.svg)
 
+## 3. Final result
+
