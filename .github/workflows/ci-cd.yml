@@ -84,7 +84,7 @@ jobs:
     
       - name: Update image tag
         run: |
-          IMAGE_TAG="$(awk -v str="${{ env.IMAGE_NAME }}" '$2 ~ str {print $2}' deployment/flask-deployment.yml | cut -d ":" -sf 2)"
+          IMAGE_TAG="$(awk '/[${{ env.IMAGE_NAME }}]/ {print $2}' deployment/flask-deployment.yml | cut -d ":" -sf 2)"
           sed -i "s/$IMAGE_TAG/${{ github.run_number }}/g" deployment/flask-deployment.yml
           git config user.email "srhardikpatel@gmail.com"
           git config user.name "srhardikpatel"
