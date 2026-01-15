@@ -26,5 +26,5 @@ jobs:
     
       - name: Update image tag
         run: |
-          IMAGE_TAG="$(awk -v str="${{ env.IMAGE_NAME }}" '$2 ~ str {print $2}' -- deployment/flask-deployment.yml | cut -d ":" -sf 2)"
+          IMAGE_TAG="$(awk -v str="${{ env.IMAGE_NAME }}" '$2 ~ str {print $2}' deployment/flask-deployment.yml | cut -d ":" -sf 2)"
           echo $(IMAGE_TAG)
