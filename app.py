@@ -50,7 +50,7 @@ def update(sno):
           todo.description = desc
           session.add(todo)
           session.commit()
-          return redirect("/")
+          return redirect("/flask")
 
         todo = todo = session.exec(select(Todo).where(Todo.sno == sno)).first()
     session.close()
