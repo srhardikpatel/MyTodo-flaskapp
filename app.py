@@ -38,7 +38,7 @@ def my_todo():
     session.close()
     return render_template('index.html', allTodo=allTodo)
 
-@app.route('/update/<int:sno>',methods=['GET','POST'])
+@app.route('flask/update/<int:sno>',methods=['GET','POST'])
 def update(sno):
     with Session(engine) as session:
 
