@@ -38,7 +38,7 @@ def my_todo():
     session.close()
     return render_template('index.html', allTodo=allTodo)
 
-@app.route('flask/update/<int:sno>',methods=['GET','POST'])
+@app.route('/update/<int:sno>',methods=['GET','POST'])
 def update(sno):
     with Session(engine) as session:
 
@@ -50,7 +50,7 @@ def update(sno):
           todo.description = desc
           session.add(todo)
           session.commit()
-          return redirect("/flask")
+          return redirect("/")
 
         todo = todo = session.exec(select(Todo).where(Todo.sno == sno)).first()
     session.close()
